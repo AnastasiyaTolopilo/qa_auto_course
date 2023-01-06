@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_MaxPoint", "01_MaxPoint\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_PointCoordinates", "02_PointCoordinates\02_PointCoordinates.csproj", "{6F367654-BF97-4967-BC0D-9CAC8EC6BAA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_CandidateConstructor", "03_CandidateConstructor\03_CandidateConstructor.csproj", "{2A697225-0748-4345-9C59-918D655E7EAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6F367654-BF97-4967-BC0D-9CAC8EC6BAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F367654-BF97-4967-BC0D-9CAC8EC6BAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F367654-BF97-4967-BC0D-9CAC8EC6BAA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A697225-0748-4345-9C59-918D655E7EAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A697225-0748-4345-9C59-918D655E7EAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A697225-0748-4345-9C59-918D655E7EAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A697225-0748-4345-9C59-918D655E7EAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
