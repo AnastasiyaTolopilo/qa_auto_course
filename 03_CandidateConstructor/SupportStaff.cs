@@ -18,6 +18,5 @@ namespace _03_CandidateConstructor
         {
             return person.Name + " " + person.Surname + " must perform the following duties: " + Duties;
         }
-
     }
 }
