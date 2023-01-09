@@ -2,16 +2,16 @@
 {
     internal class Teacher: UniversityEmployee
     {
-        public Course course { get; set; }
+        public Course Course { get; set; }
        
         public Teacher(Person person, string taxID, Course courseValue): base(person, taxID)
         {
-            course = courseValue;
+            Course = courseValue;
         }
 
         public override string GetOfficialDuties()
         {
-            return person.Name + " " + person.Surname + " should teach students the next course: " + course.Title;
+            return Person.Name + " " + Person.Surname + " should teach students the next course: " + Course.Title;
         }
     }
 }

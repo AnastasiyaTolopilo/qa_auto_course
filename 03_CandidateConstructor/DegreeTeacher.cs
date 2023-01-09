@@ -11,7 +11,7 @@
         }
         public override string GetOfficialDuties()
         {
-            return person.Name + " " + person.Surname + " should teach students the next course: " + course.Title + " on next position: " + Degree + " " + Rang;
+            return Person.Name + " " + Person.Surname + " should teach students the next course: " + Course.Title + " on next position: " + Degree + " " + Rang;
         }
     }
 }
