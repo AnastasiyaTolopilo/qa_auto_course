@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _03_CandidateConstructor
+﻿namespace _03_CandidateConstructor
 {
     internal class SubjectScore
     {
-        public int Score;
-        public string SubjectName;
+        const int MAX_SCORE = 100;
+        private int _score;
+        public int Score 
+        {
+            get 
+            { 
+                return _score; 
+            } 
+            set
+            { 
+                if (value >= 0 && value <= MAX_SCORE) {
+                    _score = value; 
+                } 
+            } 
+        }
+        public string SubjectName { get; set; }
 
         public SubjectScore(int score, string subjectName)
         {
