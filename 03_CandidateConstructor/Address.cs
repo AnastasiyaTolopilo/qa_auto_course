@@ -1,19 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _03_CandidateConstructor
+﻿namespace _03_CandidateConstructor
 {
     internal class Address
     {
-        public string City;
-        public string Street;
-        public string House;
-        public int Apartment;
-
-        public Address(string city, string street, string house, int apartment)
+        private int _house;
+        private int _apartment;
+        public string City { get; set; }
+        public string Street { get; set; }
+        public int House 
+        { 
+            get 
+            { 
+                return _house; 
+            }
+            set
+            { 
+                if (value > 0) { 
+                    _house = value; 
+                } 
+            } 
+        } 
+        public int Apartment 
+        { 
+            get 
+            {
+                return _apartment; 
+            } 
+            set
+            { 
+                if (value > 0) {
+                    _apartment = value;
+                } 
+            } 
+        }
+        public Address(string city, string street, int house, int apartment)
         {
             City = city;
             Street = street;
