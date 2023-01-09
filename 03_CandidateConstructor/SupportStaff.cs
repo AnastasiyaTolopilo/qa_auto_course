@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _03_CandidateConstructor
+﻿namespace _03_CandidateConstructor
 {
     internal class SupportStaff: UniversityEmployee
     {
-        public string Duties;
+        public string Duties { get; set; }
       
         public SupportStaff(Person personValue, string taxID, string duties) : base(personValue, taxID)
         {

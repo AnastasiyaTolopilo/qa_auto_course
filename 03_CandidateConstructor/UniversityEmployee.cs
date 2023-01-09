@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _03_CandidateConstructor
+﻿namespace _03_CandidateConstructor
 {
     internal class UniversityEmployee
     {
-        public Person person;
-        public string TaxID;
+        public Person person { get; set; }
+        public string TaxID { get; set; }
 
         public UniversityEmployee (Person personValue, string taxID)
         {
