@@ -10,7 +10,7 @@
         }
         public override string GetOfficialDuties()
         {
-            return person.Name + " " + person.Surname + " must perform the following duties: " + Duties;
+            return Person.Name + " " + Person.Surname + " must perform the following duties: " + Duties;
         }
     }
 }

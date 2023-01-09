@@ -2,18 +2,18 @@
 {
     internal class UniversityEmployee
     {
-        public Person person { get; set; }
+        public Person Person { get; set; }
         public string TaxID { get; set; }
 
         public UniversityEmployee (Person personValue, string taxID)
         {
-            person = personValue;
+            Person = personValue;
             TaxID = taxID;
         }
 
         public virtual string GetOfficialDuties()
         {
-            return person.Name + " " + person.Surname + " should respect the rights of students";
+            return Person.Name + " " + Person.Surname + " should respect the rights of students";
         }
     }
 }
