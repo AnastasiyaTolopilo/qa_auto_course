@@ -3,12 +3,12 @@
     internal class UniversityEmployee
     {
         public Person Person { get; set; }
-        public string TaxID { get; set; }
+        public string TaxId { get; set; }
 
-        public UniversityEmployee (Person personValue, string taxID)
+        public UniversityEmployee (Person person, string taxId)
         {
-            Person = personValue;
-            TaxID = taxID;
+            Person = person;
+            TaxId = taxId;
         }
 
         public virtual string GetOfficialDuties()

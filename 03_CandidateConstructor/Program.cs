@@ -34,7 +34,7 @@
                 if (currentEmployee is Teacher)
                 {
                     Console.WriteLine(
-                        currentEmployee.Person.Name + " " + currentEmployee.Person.Surname + " is a teacher"
+                       $"{currentEmployee.Person.Name} {currentEmployee.Person.Surname} is a teacher"
                     );
                 }
             }
