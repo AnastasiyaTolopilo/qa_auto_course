@@ -2,13 +2,13 @@
 {
     internal class CandidateInfo
     {
-        public Person person { get; set; }
-        public SubjectScore[] subjectScores { get; set; }
+        public Person Person { get; set; }
+        public SubjectScore[] SubjectScores { get; set; }
 
-        public CandidateInfo(Person personValue, SubjectScore[] subjectScoresValue)
+        public CandidateInfo(Person person, SubjectScore[] subjectScores)
         {
-            person = personValue;
-            subjectScores = subjectScoresValue;
+            Person = person;
+            SubjectScores = subjectScores;
         }
     }
 }
