@@ -5,10 +5,10 @@
         public Person Person { get; set; }
         public SubjectScore[] SubjectScores { get; set; }
 
-        public CandidateInfo(Person personValue, SubjectScore[] subjectScoresValue)
+        public CandidateInfo(Person person, SubjectScore[] subjectScores)
         {
-            Person = personValue;
-            SubjectScores = subjectScoresValue;
+            Person = person;
+            SubjectScores = subjectScores;
         }
     }
 }
