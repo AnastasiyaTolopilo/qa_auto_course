@@ -1,4 +1,7 @@
-﻿namespace _03_CandidateConstructor
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+
+namespace _03_CandidateConstructor
 {
     internal class Program
     {
@@ -24,15 +27,35 @@
             DegreeTeacher degree = new (personEmployee3, "82637", coursePhysics, "Candidate of Sciences", "Professor");
             SupportStaff staff = new (personEmployee4, "13948", "Cleaner");
 
-            UniversityEmployee[] employees = { employee, teacher, degree, staff };
+            //List<UniversityEmployee> employees = new List<UniversityEmployee>() { employee, teacher, degree, staff };
+            List<UniversityEmployee> employees = new List<UniversityEmployee>();
+            
+            bool IsExistStaff = Helper.IsContains(employees, staff);
+
+
+            if (IsExistStaff) {
+
+            } else {
+                employees.Add(staff);
+            }
+
+
+            if (!Helper.IsContains(employees, staff))
+            {
+                employees.Add(staff);
+            }
+
+
+
+
 
             Room room1 = new("Lecture room");
             Room room2 = new("Laboratory room");
             Room room3 = new("Seminar room");
             Room room4 = new("Auxiliary room");
 
-            Room[] roomsBuilding1 = { room1, room2 };
-            Room[] roomsBuilding2 = { room3, room4 };
+            List<Room> roomsBuilding1 = new List<Room>() { room1, room2 };
+            List<Room> roomsBuildind2 = new List<Room>() { room3, room4 }; 
 
             Address buidingAddress1 = new("Minsk", "Nezawisimosti", 170, 7);
             Address buidingAddress2 = new("Minsk", "Pobeditelei", 208, 13);
@@ -41,7 +64,7 @@
             Building building1 = new(buidingAddress1, roomsBuilding1);
             Building building2 = new(buidingAddress2, roomsBuilding2);
 
-            Building[] buildings = { building1, building2 };
+            List<Building> buildings = new List<Building>() { building1, building2 };
 
             University university1 = new(officialAddressValue, employees, buildings, personRector);
 
@@ -49,4 +72,3 @@
         }
     }
 }
-

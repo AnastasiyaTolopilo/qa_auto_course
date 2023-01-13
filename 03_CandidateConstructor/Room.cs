@@ -8,5 +8,19 @@
         {
             Type = type;
         }
+
+
+        public override bool Equels(object obj)
+        {
+            if (obj is Room)
+            {
+                Room room = obj as Room;
+                return room.Type.Equals(Type);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -10,5 +10,21 @@
             BuildingAddress = buildingAddress;
             Rooms = roomsValue;
         }
+
+
+
+        public override bool Equels(object obj)
+        {
+            if (obj is Building)
+            {
+                Building building = obj as Building;
+                return building.BuildingAddress.Equals(BuildingAddress) &&
+                    building.Rooms.Equals(Rooms);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

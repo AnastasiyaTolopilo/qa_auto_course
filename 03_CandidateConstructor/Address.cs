@@ -39,5 +39,22 @@
             House = house;
             Apartment = apartment;
         }
+
+
+        public override bool Equels(object obj)
+        {
+            if (obj is Address)
+            {
+                Address address = obj as Address;
+                return address.City.Equals(City) &&
+                    address.Street.Equals(Street) &&
+                    address.House.Equals(House) &&
+                    address.Apartment.Equals(Apartment);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

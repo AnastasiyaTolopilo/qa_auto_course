@@ -14,5 +14,22 @@
             Buildings = buildingsValue;
             Rector = rector;
         }
+
+
+        public override bool Equels(object obj)
+        {
+            if (obj is University)
+            {
+                University university = obj as University;
+                return university.OfficialAddress.Equals(OfficialAddress) &&
+                    university.UniversityEmployees.Equals(UniversityEmployees) &&
+                    university.Buildings.Equals(Buildings) &&
+                    university.Rector.Equals(Rector);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
