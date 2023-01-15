@@ -27,48 +27,40 @@ namespace _03_CandidateConstructor
             DegreeTeacher degree = new (personEmployee3, "82637", coursePhysics, "Candidate of Sciences", "Professor");
             SupportStaff staff = new (personEmployee4, "13948", "Cleaner");
 
-            //List<UniversityEmployee> employees = new List<UniversityEmployee>() { employee, teacher, degree, staff };
-            List<UniversityEmployee> employees = new List<UniversityEmployee>();
-            
-            bool IsExistStaff = Helper.IsContains(employees, staff);
-
-
-            if (IsExistStaff) {
-
-            } else {
-                employees.Add(staff);
-            }
-
-
-            if (!Helper.IsContains(employees, staff))
-            {
-                employees.Add(staff);
-            }
-
-
-
-
+            List<UniversityEmployee> employees = new List<UniversityEmployee>() { employee, teacher, degree, staff };
 
             Room room1 = new("Lecture room");
             Room room2 = new("Laboratory room");
             Room room3 = new("Seminar room");
             Room room4 = new("Auxiliary room");
+            Room room5 = new("Sports hall");
 
             List<Room> roomsBuilding1 = new List<Room>() { room1, room2 };
-            List<Room> roomsBuildind2 = new List<Room>() { room3, room4 }; 
+            List<Room> roomsBuilding2 = new List<Room>() { room3, room4 };
+            List<Room> roomsBuilding3 = new List<Room>() { room5 };
 
             Address buidingAddress1 = new("Minsk", "Nezawisimosti", 170, 7);
             Address buidingAddress2 = new("Minsk", "Pobeditelei", 208, 13);
-            Address officialAddressValue = new("Minsk", "Nezawisimosti", 170, 7);
+            Address officialAddress = new("Minsk", "Nezawisimosti", 170, 7);
+            Address buidingAddress3 = new("Minsk", "Syrganova", 15, 33);
 
             Building building1 = new(buidingAddress1, roomsBuilding1);
             Building building2 = new(buidingAddress2, roomsBuilding2);
+            Building building3 = new(buidingAddress3, roomsBuilding3);
 
             List<Building> buildings = new List<Building>() { building1, building2 };
 
-            University university1 = new(officialAddressValue, employees, buildings, personRector);
+            University university1 = new(officialAddress, employees, buildings, personRector);
 
-            Console.WriteLine("University rector is: " + university1.Rector.Name + " " + university1.Rector.Surname);
+            Teacher teacher2 = new(personEmployee2, "72637", courseMath);
+            university1.AddEmployee(teacher2);
+            university1.AddEmployee(staff);
+            university1.AddBuilding(building3);
+            university1.AddEmployee(teacher);
+            building3.AddRoom(room5);
+            building3.AddRoom(room1);
+
+            Console.WriteLine("University rector is: " + university1.Rector.Name + " " + university1.Rector.Surname);    
         }
     }
 }
