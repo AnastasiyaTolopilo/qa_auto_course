@@ -62,7 +62,7 @@
 
             Console.WriteLine($"=============== Employees which surname starts with selected letter ======================");
 
-            UniversityEmployee employeeSortedBySurname = employees.Where(e => e.Person.Surname.ToUpper().StartsWith("S")).OrderBy(e => e.TaxId);
+            var employeeSortedBySurname = employees.Where(e => e.Person.Surname.ToUpper().StartsWith("S")).OrderBy(e => e.TaxId);
 
             foreach (UniversityEmployee employeeSorted in employeeSortedBySurname)
             {
