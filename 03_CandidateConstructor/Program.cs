@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-
-namespace _03_CandidateConstructor
+﻿namespace _03_CandidateConstructor
 {
     internal class Program
     {
