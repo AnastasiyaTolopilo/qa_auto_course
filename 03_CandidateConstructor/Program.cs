@@ -60,6 +60,12 @@ namespace _03_CandidateConstructor
             building3.AddRoom(room5);
             building3.AddRoom(room1);
 
+            Room room1_alt = new("Seminar room");
+            List<Room> roomsBuilding1_alt = new List<Room>() { room1_alt, room2, room3, room4 };
+            Building building1_alt = new(buidingAddress2, roomsBuilding1_alt);
+            Console.WriteLine(room1.Equals(room1_alt));
+            Console.WriteLine(building1.Equals(building1_alt));
+
             Console.WriteLine("University rector is: " + university1.Rector.Name + " " + university1.Rector.Surname);    
         }
     }
