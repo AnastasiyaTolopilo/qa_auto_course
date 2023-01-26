@@ -33,28 +33,17 @@
         }
         public void AddEmployee(UniversityEmployee itemToCheck)
         {
-            foreach (UniversityEmployee item in UniversityEmployees.ToList())
+            if(!UniversityEmployees.Contains(itemToCheck))
             {
-                if (item.Equals(itemToCheck))
-                {
-                    return;
-                }
+                UniversityEmployees.Add(itemToCheck);
             }
-
-            UniversityEmployees.Add(itemToCheck);
         }
-
         public void AddBuilding(Building itemToCheck)
         {
-            foreach (Building item in Buildings.ToList())
+            if (!Buildings.Contains(itemToCheck))
             {
-                if (item.Equals(itemToCheck))
-                {
-                    return;
-                }
+                Buildings.Add(itemToCheck);
             }
-
-            Buildings.Add(itemToCheck);
         }
     }
 }

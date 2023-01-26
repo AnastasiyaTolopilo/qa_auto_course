@@ -15,11 +15,16 @@
 
         public override bool Equals(object obj)
         {
-            if (obj is Building)
+            if (obj is Building building)
             {
-                Building building = obj as Building;
-                return building.BuildingAddress.Equals(BuildingAddress) &&
-                    building.Rooms.Equals(Rooms);
+                bool temp = true;
+                foreach (Room r in building.Rooms)
+                {
+                    if (!Rooms.Contains(r)) { temp = false; break; }
+                }
+                if (!temp) { return false; }
+
+                return building.BuildingAddress.Equals(BuildingAddress);
             }
             else
             {
@@ -29,15 +34,10 @@
 
         public void AddRoom(Room itemToCheck)
         {
-            foreach (Room item in Rooms.ToList())
+            if (!Rooms.Contains(itemToCheck)) 
             {
-                if (item.Equals(itemToCheck))
-                {
-                    return;
-                }
+                Rooms.Add(itemToCheck);
             }
-
-            Rooms.Add(itemToCheck);
         }
     }
 }

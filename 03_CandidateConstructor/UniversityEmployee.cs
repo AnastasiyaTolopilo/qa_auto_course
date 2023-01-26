@@ -18,15 +18,8 @@
 
         public override bool Equals(object obj)
         {
-            if (obj is UniversityEmployee)
-            {
-                UniversityEmployee employee = obj as UniversityEmployee;
-                return employee.TaxId.Equals(TaxId);
-            }
-            else
-            {
-                return false;                       
-            }
+            return obj is UniversityEmployee employee
+                && employee.TaxId.Equals(TaxId);
         }
     }     
 }
