@@ -3,10 +3,12 @@
     internal class Room
     {
         public string Type { get; set; }
+        public int RoomNumber { get; set; }
 
-        public Room(string type)
+        public Room(string type, int roomNumber)
         {
             Type = type;
+            RoomNumber = roomNumber;
         }
 
 
