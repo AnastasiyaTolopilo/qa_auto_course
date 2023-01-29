@@ -15,6 +15,11 @@
         {
             return Person.Name + " " + Person.Surname + " should respect the rights of students";
         }
-    }
-}
 
+        public override bool Equals(object obj)
+        {
+            return obj is UniversityEmployee employee
+                && employee.TaxId.Equals(TaxId);
+        }
+    }     
+}
