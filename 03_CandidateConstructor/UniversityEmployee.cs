@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class UniversityEmployee
+    public class UniversityEmployee
     {
         public Person Person { get; set; }
         public string TaxId { get; set; }

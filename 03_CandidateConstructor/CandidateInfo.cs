@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class CandidateInfo
+    public class CandidateInfo
     {
         public Person Person { get; set; }
         public SubjectScore[] SubjectScores { get; set; }

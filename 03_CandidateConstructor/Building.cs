@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class Building: UniversityProperty
+    public class Building: UniversityProperty
     {
         public Address BuildingAddress { get; set; }
         public List<Room> Rooms { get; set; } 

@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
