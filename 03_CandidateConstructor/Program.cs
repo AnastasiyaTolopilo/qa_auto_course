@@ -19,12 +19,22 @@
             Course courseMath = new ("Mathematics", "Basics of algebra and geometry");
             Course coursePhysics = new ("Physics", "Study of the properties and phenomena of inanimate nature");
 
-            UniversityEmployee employee = new (personEmployee1, "86298");
-            Teacher teacher = new (personEmployee2, "72937", courseMath);
-            DegreeTeacher degree = new (personEmployee3, "82637", coursePhysics, "Candidate of Sciences", "Professor");
-            SupportStaff staff = new (personEmployee4, "13948", "Cleaner");
+            UniversityEmployee employee = new (personEmployee1, 86298);
+            Teacher teacher = new (personEmployee2, 72937, courseMath);
+            DegreeTeacher degree = new (personEmployee3, 82637, coursePhysics, "Candidate of Sciences", "Professor");
+            SupportStaff staff = new (personEmployee4, 13948, "Cleaner");
 
             List<UniversityEmployee> employees = new List<UniversityEmployee>() { employee, teacher, degree, staff };
+
+            Console.WriteLine("======== Sorted array of employees with using the CompareTo method ==============");
+            UniversityEmployee[] employessArray = { employee, teacher, degree, staff };
+            Array.Sort(employessArray);
+
+            foreach (UniversityEmployee currentEmployee in employessArray)
+            {
+                Console.WriteLine($"{currentEmployee.Person.Name} {currentEmployee.Person.Surname}");
+            }
+            Console.WriteLine("=========================================================");
 
             Room room1 = new("Lecture room");
             Room room2 = new("Laboratory room");
@@ -49,7 +59,7 @@
 
             University university1 = new(officialAddress, employees, buildings, personRector);
 
-            Teacher teacher2 = new(personEmployee2, "72637", courseMath);
+            Teacher teacher2 = new(personEmployee2, 72637, courseMath);
             university1.AddEmployee(teacher2);
             university1.AddEmployee(staff);
             university1.AddBuilding(building3);

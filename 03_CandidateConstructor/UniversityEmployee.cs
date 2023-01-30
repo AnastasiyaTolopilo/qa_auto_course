@@ -24,7 +24,6 @@
                 && employee.TaxId.Equals(TaxId);
         }
 
-
         private void CheckLenghtEmployee(Person person)
         {
         if (person.Name.Length + person.Surname.Length > 15) 
@@ -41,7 +40,6 @@
             }
         }
 
-
         public int CompareTo(UniversityEmployee compareUniversiyEmployee)
         {
             int SumNameSurname1 = (this.Person.Name + this.Person.Surname).Length;
@@ -54,5 +52,5 @@
                 return -1;
             return 0;
          }
-    }     
+    }
 }

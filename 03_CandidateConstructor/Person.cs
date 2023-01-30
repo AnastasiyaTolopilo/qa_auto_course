@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class Person
+    public class Person
     {
         public string Name { get; set; }
         public string Surname { get; set; }
