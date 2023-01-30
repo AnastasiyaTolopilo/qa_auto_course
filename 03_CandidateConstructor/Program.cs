@@ -4,154 +4,66 @@
     {
         static void Main(string[] args)
         {
-            const string SUBJECT = "Math";
+            Address addressEmployee1 = new ("Minsk", "Prityckogo", 146, 4);
+            Address addressEmployee2 = new ("Mogilew", "Kalinowskogo", 167, 45);
+            Address addressEmployee3 = new ("Vitebsk", "Mira", 17, 1);
+            Address addressEmployee4 = new ("Grodno", "Swobody", 78, 7);
+            Address addressRector = new ("Krakow", "Powstancew", 1, 13);
 
-            SubjectScore scoreMathCandidate1 = new (90, "Math");
-            SubjectScore scorePhysicsCandidate1 = new (70, "Physics");
-            SubjectScore scoreLithCandidate1 = new (95, "Litherature");
-            SubjectScore scoreLanguageCandidate1 = new (98, "Language");
+            Person personEmployee1 = new ("Natalya", "Kachan", addressEmployee1);
+            Person personEmployee2 = new ("Peter", "Byko", addressEmployee2);
+            Person personEmployee3 = new ("Oleg", "Bylawski", addressEmployee3);
+            Person personEmployee4 = new ("Elizaweta", "Sinica", addressEmployee4);
+            Person personRector = new ("Wiacheslaw", "Gruzdow", addressRector);
 
-            SubjectScore[] subjectScoresCandidate1 = { 
-                scoreMathCandidate1, 
-                scorePhysicsCandidate1, 
-                scoreLithCandidate1, 
-                scoreLanguageCandidate1 
-            };
+            Course courseMath = new ("Mathematics", "Basics of algebra and geometry");
+            Course coursePhysics = new ("Physics", "Study of the properties and phenomena of inanimate nature");
 
-            Address addressCandidate1 = new ("Wroclaw", "Czarnuszkowa", 12, 3);
-            Person personCandidate1 = new ("Nastya", "Talapila", addressCandidate1);
+            UniversityEmployee employee = new (personEmployee1, "86298");
+            Teacher teacher = new (personEmployee2, "72937", courseMath);
+            DegreeTeacher degree = new (personEmployee3, "82637", coursePhysics, "Candidate of Sciences", "Professor");
+            SupportStaff staff = new (personEmployee4, "13948", "Cleaner");
 
-            CandidateInfo candidate1 = new (
-                personCandidate1, 
-                subjectScoresCandidate1
-            );
+            List<UniversityEmployee> employees = new List<UniversityEmployee>() { employee, teacher, degree, staff };
 
+            Room room1 = new("Lecture room");
+            Room room2 = new("Laboratory room");
+            Room room3 = new("Seminar room");
+            Room room4 = new("Auxiliary room");
+            Room room5 = new("Sports hall");
 
+            List<Room> roomsBuilding1 = new List<Room>() { room1, room2 };
+            List<Room> roomsBuilding2 = new List<Room>() { room3, room4 };
+            List<Room> roomsBuilding3 = new List<Room>() { room5 };
 
+            Address buidingAddress1 = new("Minsk", "Nezawisimosti", 170, 7);
+            Address buidingAddress2 = new("Minsk", "Pobeditelei", 208, 13);
+            Address officialAddress = new("Minsk", "Nezawisimosti", 170, 7);
+            Address buidingAddress3 = new("Minsk", "Syrganova", 15, 33);
 
+            Building building1 = new(buidingAddress1, roomsBuilding1);
+            Building building2 = new(buidingAddress2, roomsBuilding2);
+            Building building3 = new(buidingAddress3, roomsBuilding3);
 
-            SubjectScore scoreMathCandidate2 = new (50, "Math");
-            SubjectScore scorePhysicsCandidate2 = new (90, "Physics");
-            SubjectScore scoreLithCandidate2 = new (60, "Litherature");
-            SubjectScore scoreLanguageCandidate2 = new (55, "Language");
+            List<Building> buildings = new List<Building>() { building1, building2 };
 
-            SubjectScore[] subjectScoresCandidate2 = { 
-                scoreMathCandidate2, 
-                scorePhysicsCandidate2, 
-                scoreLithCandidate2, 
-                scoreLanguageCandidate2 
-            };
+            University university1 = new(officialAddress, employees, buildings, personRector);
 
-            Address addressCandidate2 = new ("Wroclaw", "Czarnuszkowa", 20, 5);
-            Person personCandidate2 = new ("Pavel", "Talapila", addressCandidate2);
+            Teacher teacher2 = new(personEmployee2, "72637", courseMath);
+            university1.AddEmployee(teacher2);
+            university1.AddEmployee(staff);
+            university1.AddBuilding(building3);
+            university1.AddEmployee(teacher);
+            building3.AddRoom(room5);
+            building3.AddRoom(room1);
 
-            CandidateInfo candidate2 = new (
-                personCandidate2, 
-                subjectScoresCandidate2
-            );
+            Room room1_alt = new("Seminar room");
+            List<Room> roomsBuilding1_alt = new List<Room>() { room1_alt, room2, room3, room4 };
+            Building building1_alt = new(buidingAddress2, roomsBuilding1_alt);
+            Console.WriteLine(room1.Equals(room1_alt));
+            Console.WriteLine(building1.Equals(building1_alt));
 
-
-
-
-
-            SubjectScore scoreMathCandidate3 = new (20, "Math");
-            SubjectScore scorePhysicsCandidate3 = new (30, "Physics");
-            SubjectScore scoreLithCandidate3 = new (90, "Litherature");
-            SubjectScore scoreLanguageCandidate3 = new (90, "Language");
-
-            SubjectScore[] subjectScoresCandidate3 = { 
-                scoreMathCandidate3, 
-                scorePhysicsCandidate3, 
-                scoreLithCandidate3, 
-                scoreLanguageCandidate3 
-            };
-
-            Address addressCandidate3 = new ("Minsk", "Dzerzinskogo", 16, 55);
-            Person personCandidate3 = new ("Ivanova", "Katy", addressCandidate3);
-
-            CandidateInfo candidate3 = new (
-                personCandidate3, 
-                subjectScoresCandidate3
-            );
-
-
-
-
-
-            SubjectScore scoreMathCandidate4 = new (80, "Math");
-            SubjectScore scorePhysicsCandidate4 = new (20, "Physics");
-            SubjectScore scoreLithCandidate4 = new (70, "Litherature");
-            SubjectScore scoreLanguageCandidate4 = new (95, "Language");
-
-            SubjectScore[] subjectScoresCandidate4 = { 
-                scoreMathCandidate4, 
-                scorePhysicsCandidate4, 
-                scoreLithCandidate4, 
-                scoreLanguageCandidate4 
-            };
-
-            Address addressCandidate4 = new ("Minsk", "Prityckogo", 78, 13);
-            Person personCandidate4 = new ("Petrov", "Petr", addressCandidate4);
-
-            CandidateInfo candidate4 = new (
-                personCandidate4, 
-                subjectScoresCandidate4
-            );
-
-
-
-
-
-            SubjectScore scoreMathCandidate5 = new (95, "Math");
-            SubjectScore scorePhysicsCandidate5 = new (85, "Physics");
-            SubjectScore scoreLithCandidate5 = new (70, "Litherature");
-            SubjectScore scoreLanguageCandidate5 = new (95, "Language");
-
-            SubjectScore[] subjectScoresCandidate5 = { 
-                scoreMathCandidate5, 
-                scorePhysicsCandidate5, 
-                scoreLithCandidate5, 
-                scoreLanguageCandidate5 
-            };
-
-            Address addressCandidate5 = new ("Vitebsk", "Pobedy", 130, 21);
-            Person personCandidate5 = new ("Sidorova", "Inna", addressCandidate5);
-
-            CandidateInfo candidate5 = new (
-                personCandidate5, 
-                subjectScoresCandidate5
-            );
-
-
-
-
-            CandidateInfo[] Candedates = { 
-                candidate1, 
-                candidate2, 
-                candidate3, 
-                candidate4, 
-                candidate5 
-            };
-            int max = 0;
-
-            foreach (CandidateInfo candidate in Candedates)
-            {
-                foreach (SubjectScore subjectScore in candidate.subjectScores)
-                {
-                    if (subjectScore.SubjectName == SUBJECT)
-                    {
-                        if (max < subjectScore.Score)
-                        {
-                            max = subjectScore.Score;
-                        }
-                    }
-                }
-
-                Console.WriteLine("Candidate street: " + candidate.person.address.Street);
-                Console.WriteLine();
-            }
-
-            Console.WriteLine($"Max {SUBJECT} score: " + max);
+            Console.WriteLine("University rector is: " + university1.Rector.Name + " " + university1.Rector.Surname);    
         }
     }
 }
