@@ -36,11 +36,6 @@
             }
             Console.WriteLine("=========================================================");
 
-            Room room1 = new("Lecture room");
-            Room room2 = new("Laboratory room");
-            Room room3 = new("Seminar room");
-            Room room4 = new("Auxiliary room");
-            Room room5 = new("Sports hall");
             Room room1 = new("Lecture room", 1);
             Room room2 = new("Laboratory room", 2);
             Room room3 = new("Seminar room", 3);
