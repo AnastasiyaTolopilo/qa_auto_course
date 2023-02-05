@@ -15,8 +15,8 @@ namespace _04_University_UnitTests
             Person personEmployee1 = new("Natalya", "Kachan", addressEmployee1);
             Person personEmployee2 = new("Peter", "Byko", addressEmployee2);
             Course courseMath = new("Mathematics", "Basics of algebra and geometry");
-            UniversityEmployee employee = new(personEmployee1, "86298");
-            Teacher teacher = new(personEmployee2, "72937", courseMath);
+            UniversityEmployee employee = new(personEmployee1, 86298);
+            Teacher teacher = new(personEmployee2, 72937, courseMath);
             var employees = new List<UniversityEmployee>() { employee, teacher };
             Address buidingAddress1 = new("Minsk", "Nezawisimosti", 170, 7);
             Address buidingAddress2 = new("Minsk", "Pobeditelei", 208, 13);
@@ -41,8 +41,8 @@ namespace _04_University_UnitTests
             Person personEmployee11 = new("Natalya", "Kachan", addressEmployee11);
             Person personEmployee21 = new("Peter", "Byko", addressEmployee21);
             Course courseMath1 = new("Mathematics", "Basics of algebra and geometry");
-            UniversityEmployee employee1 = new(personEmployee11, "86298");
-            Teacher teacher1 = new(personEmployee21, "72937", courseMath1);
+            UniversityEmployee employee1 = new(personEmployee11, 86298);
+            Teacher teacher1 = new(personEmployee21, 72937, courseMath1);
             var employees1 = new List<UniversityEmployee>() { employee1, teacher1 };
             Address buidingAddress11 = new("Minsk", "Nezawisimosti", 170, 7);
             Address buidingAddress21 = new("Minsk", "Pobeditelei", 208, 13);
@@ -72,8 +72,8 @@ namespace _04_University_UnitTests
             Person personEmployee1 = new("Natalya", "Kachan", addressEmployee1);
             Person personEmployee2 = new("Peter", "Byko", addressEmployee2);
             Course courseMath = new("Mathematics", "Basics of algebra and geometry");
-            UniversityEmployee employee = new(personEmployee1, "86298");
-            Teacher teacher = new(personEmployee2, "72937", courseMath);
+            UniversityEmployee employee = new(personEmployee1, 86298);
+            Teacher teacher = new(personEmployee2, 72937, courseMath);
             var employees = new List<UniversityEmployee>() { employee, teacher };
             Address buidingAddress1 = new("Minsk", "Nezawisimosti", 170, 7);
             Address buidingAddress2 = new("Minsk", "Pobeditelei", 208, 13);
@@ -98,8 +98,8 @@ namespace _04_University_UnitTests
             Person personEmployee11 = new("Natalya", "Kachan", addressEmployee11);
             Person personEmployee21 = new("Peter", "Byko", addressEmployee21);
             Course courseMath1 = new("Mathematics", "Basics of algebra and geometry");
-            UniversityEmployee employee1 = new(personEmployee11, "86298");
-            Teacher teacher1 = new(personEmployee21, "72937", courseMath1);
+            UniversityEmployee employee1 = new(personEmployee11, 86298);
+            Teacher teacher1 = new(personEmployee21, 72937, courseMath1);
             var employees1 = new List<UniversityEmployee>() { employee1, teacher1 };
             Address buidingAddress11 = new("Minsk", "Nezawisimosti", 170, 7);
             Address buidingAddress21 = new("Minsk", "Pobeditelei", 208, 13);
@@ -112,7 +112,7 @@ namespace _04_University_UnitTests
             Building building11 = new(buidingAddress11, roomsBuilding11);
             Building building21 = new(buidingAddress21, roomsBuilding21);
             var buildings1 = new List<Building>() { building11, building21 };
-            Person personRector1 = new("Ekaterina", "Gruzdowa", addressRector);
+            Person personRector1 = new("Ekaterina", "Gruzdowa", addressRector1);
 
             University university2 = new(officialAddress1, employees1, buildings1, personRector1);
 
