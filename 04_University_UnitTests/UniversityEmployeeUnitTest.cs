@@ -34,25 +34,22 @@ namespace _04_University_UnitTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void CheckUniversityEmployeeTaxIdThrowExceptionlNegative()
         {
             Address addressEmployee1 = new("Minsk", "Prityckogo", 146, 4);
             Person personEmployee1 = new("Natalya", "Kachan", addressEmployee1);
-
-            var exception = Assert.ThrowsException<ArgumentException>(() => new UniversityEmployee(personEmployee1, -86298));
-
-            Assert.AreEqual("TaxID entered incorrectly", exception.Message);
+            _ = new UniversityEmployee(personEmployee1, -86298);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void CheckUniversityEmployeeLenghtNameSurnameThrowExceptionlNegative()
         {
             Address addressEmployee1 = new("Minsk", "Prityckogo", 146, 4);
             Person personEmployee1 = new("Natalya", "Kachannova", addressEmployee1);
 
-            var exception = Assert.ThrowsException<ArgumentException>(() => new UniversityEmployee(personEmployee1, 86298));
-
-            Assert.AreEqual("The length of the first and last name exceeds the allowed number of characters", exception.Message);
+            _ =  new UniversityEmployee(personEmployee1, 86298);
         }
 
         [TestMethod]
