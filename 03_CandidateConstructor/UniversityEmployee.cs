@@ -27,7 +27,7 @@
 
         private void CheckLenghtEmployee(Person person)
         {
-        if ((Person?.FullNameLenght() ?? 0) > 15) 
+        if ((person?.FullNameLenght() ?? 0) > 15) 
             {
                 throw new ArgumentException("The length of the first and last name exceeds the allowed number of characters");
             }
