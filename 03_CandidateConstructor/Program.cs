@@ -27,8 +27,8 @@
             var employees = new List<UniversityEmployee>() { employee, teacher, degree, staff };
 
             Console.WriteLine("======== Sorted array of employees with using the IComparable interface throught Sort method ==============");
-            UniversityEmployee[] employessArray = { employee, teacher, degree, staff };
-            Array.Sort(employessArray);
+            List<UniversityEmployee> employessArray = new List<UniversityEmployee> { employee, teacher, degree, staff };
+            employessArray.Sort();
 
             foreach (UniversityEmployee currentEmployee in employessArray)
             {
@@ -37,16 +37,16 @@
 
             Console.WriteLine("========= Sorted array of employees with using the IComparer interface throught OrderBy method =======");
 
-            var sortedEmployees = employees.OrderBy(p => p, new UniversityEmployeesComparer());
+            employees.Sort(new UniversityEmployeesComparer());
 
-            foreach (UniversityEmployee currentEmployee in sortedEmployees) {
+            foreach (UniversityEmployee currentEmployee in employees) {
                 Console.WriteLine($"{currentEmployee.Person.Name} {currentEmployee.Person.Surname}");
             }
 
             Console.WriteLine("=============== Sorted array of employees with using LINQ OrderBy ======================");
 
             var employeeSortedByLINQ = employees
-                .OrderBy(e => (e.Person.Name + e.Person.Surname).Length);
+                .OrderBy(e => e.Person.FullNameLenght());
 
             foreach (UniversityEmployee currentEmployee in employeeSortedByLINQ)
             {

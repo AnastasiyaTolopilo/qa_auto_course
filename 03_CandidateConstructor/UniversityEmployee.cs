@@ -7,10 +7,11 @@
 
         public UniversityEmployee (Person person, int taxId)
         {
-            Person = person;
             CheckLenghtEmployee(person);
-            TaxId = taxId;
             CheckTaxID(taxId);
+
+            Person = person;
+            TaxId = taxId;
         }
 
         public virtual string GetOfficialDuties()
@@ -26,7 +27,7 @@
 
         private void CheckLenghtEmployee(Person person)
         {
-        if (person.Name.Length + person.Surname.Length > 15) 
+        if ((Person?.FullNameLenght() ?? 0) > 15) 
             {
                 throw new ArgumentException("The length of the first and last name exceeds the allowed number of characters");
             }
@@ -42,15 +43,10 @@
 
         public int CompareTo(UniversityEmployee compareUniversiyEmployee)
         {
-            int SumNameSurname1 = (this.Person.Name + this.Person.Surname).Length;
-            int SumNameSurname2 = (compareUniversiyEmployee.Person.Name + compareUniversiyEmployee.Person.Surname).Length;
+            int SumNameSurname1 = Person.FullNameLenght();
+            int SumNameSurname2 = compareUniversiyEmployee.Person.FullNameLenght();
 
-            if (SumNameSurname1 > SumNameSurname2)
-                return 1;
-            else
-            if (SumNameSurname1 < SumNameSurname2)
-                return -1;
-            return 0;
+            return SumNameSurname1 - SumNameSurname2;
          }
     }
 }
