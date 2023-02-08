@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_PointCoordinates", "02_P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_CandidateConstructor", "03_CandidateConstructor\03_CandidateConstructor.csproj", "{2A697225-0748-4345-9C59-918D655E7EAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05_Selenium", "08_Selenium\05_Selenium.csproj", "{BC2E791B-AD7C-4931-A74D-8DA95312F013}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
