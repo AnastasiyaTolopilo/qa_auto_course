@@ -40,6 +40,8 @@ bld/
 
 01_MaxPoint/
 02_PointCoordinates/
+03_CandidateConstructor/
+04_University_UnitTests/
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
