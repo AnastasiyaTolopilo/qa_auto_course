@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class SupportStaff: UniversityEmployee
+    public class SupportStaff: UniversityEmployee
     {
         public string Duties { get; set; }
       

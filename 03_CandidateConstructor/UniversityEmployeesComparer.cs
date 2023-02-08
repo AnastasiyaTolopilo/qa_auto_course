@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class UniversityEmployeesComparer : IComparer<UniversityEmployee>
+    public class UniversityEmployeesComparer : IComparer<UniversityEmployee>
     {
         public int Compare(UniversityEmployee? employee1, UniversityEmployee? employee2)
         {

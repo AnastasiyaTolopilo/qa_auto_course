@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class Teacher: UniversityEmployee
+    public class Teacher: UniversityEmployee
     {
         public Course Course { get; set; }
        

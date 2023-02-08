@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class SubjectScore
+    public class SubjectScore
     {
         const int MAX_SCORE = 100;
         private int _score;

@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class DegreeTeacher: Teacher
+    public class DegreeTeacher: Teacher
     {
         public string Degree { get; set; }
         public string Rang { get; set; }

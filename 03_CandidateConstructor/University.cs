@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class University
+    public class University
     {
         public Address OfficialAddress { get; set; }
         public List<UniversityEmployee> UniversityEmployees { get; set; }
@@ -15,22 +15,37 @@
             Rector = rector;
         }
 
-
-        public override bool Equals(object obj)
+        public bool Equals(object newUniwersity)
         {
-            if (obj is University)
+            if (newUniwersity is University university) 
             {
-                University university = obj as University;
-                return university.OfficialAddress.Equals(OfficialAddress) &&
-                    university.UniversityEmployees.Equals(UniversityEmployees) &&
-                    university.Buildings.Equals(Buildings) &&
-                    university.Rector.Equals(Rector);
+                bool isBuildingExist = true;
+
+                foreach (Building newBuilding in university.Buildings)
+                {
+                    if (!Buildings.Contains(newBuilding)) { isBuildingExist = false; break; }
+                }
+
+                if (!isBuildingExist) { return false; }
+
+                bool isEmployeeExist = true;
+
+                foreach (UniversityEmployee newEmployee in university.UniversityEmployees)
+                {
+                    if (!UniversityEmployees.Contains(newEmployee)) { isEmployeeExist = false; break; }
+                }
+
+                if (!isEmployeeExist) { return false; }
+
+                return university.OfficialAddress.Equals(OfficialAddress) && university.Rector.Equals(Rector);
+
             }
             else
             {
                 return false;
             }
         }
+
         public void AddEmployee(UniversityEmployee itemToCheck)
         {
             if(!UniversityEmployees.Contains(itemToCheck))
