@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class Address
+    public class Address
     {
         private int _house;
         private int _apartment;

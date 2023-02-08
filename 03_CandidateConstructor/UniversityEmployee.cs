@@ -1,12 +1,15 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class UniversityEmployee
+    public class UniversityEmployee : IComparable<UniversityEmployee>
     {
         public Person Person { get; set; }
-        public string TaxId { get; set; }
+        public int TaxId { get; set; }
 
-        public UniversityEmployee (Person person, string taxId)
+        public UniversityEmployee (Person person, int taxId)
         {
+            CheckLenghtEmployee(person);
+            CheckTaxID(taxId);
+
             Person = person;
             TaxId = taxId;
         }
@@ -21,5 +24,29 @@
             return obj is UniversityEmployee employee
                 && employee.TaxId.Equals(TaxId);
         }
-    }     
+
+        private void CheckLenghtEmployee(Person person)
+        {
+        if ((person?.FullNameLenght() ?? 0) > 15) 
+            {
+                throw new ArgumentException("The length of the first and last name exceeds the allowed number of characters");
+            }
+        }
+
+        private void CheckTaxID(int taxId) 
+        {
+            if (taxId < 0)
+            {
+                throw new ArgumentException("TaxID entered incorrectly");
+            }
+        }
+
+        public int CompareTo(UniversityEmployee compareUniversiyEmployee)
+        {
+            int SumNameSurname1 = Person.FullNameLenght();
+            int SumNameSurname2 = compareUniversiyEmployee.Person.FullNameLenght();
+
+            return SumNameSurname1 - SumNameSurname2;
+         }
+    }
 }

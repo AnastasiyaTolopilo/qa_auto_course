@@ -4,7 +4,7 @@
     {
         public string Duties { get; set; }
       
-        public SupportStaff(Person person, string taxID, string duties) : base(person, taxID)
+        public SupportStaff(Person person, int taxID, string duties) : base(person, taxID)
         {
             Duties = duties;
         }
