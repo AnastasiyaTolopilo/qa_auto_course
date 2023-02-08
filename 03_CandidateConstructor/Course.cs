@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class Course
+    public class Course
     {
         public string Title { get; set; }
         public string Description { get; set; }

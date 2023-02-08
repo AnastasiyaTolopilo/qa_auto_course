@@ -1,6 +1,6 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -19,122 +19,151 @@
             Course courseMath = new("Mathematics", "Basics of algebra and geometry");
             Course coursePhysics = new("Physics", "Study of the properties and phenomena of inanimate nature");
 
-            UniversityEmployee employee = new(personEmployee1, "86298");
-            Teacher teacher = new(personEmployee2, "72937", courseMath);
-            DegreeTeacher degree = new(personEmployee3, "82637", coursePhysics, "Candidate of Sciences", "Professor");
-            SupportStaff staff = new(personEmployee4, "13948", "Cleaner");
+            UniversityEmployee employee = new(personEmployee1, 86298);
+            Teacher teacher = new(personEmployee2, 72937, courseMath);
+            DegreeTeacher degree = new(personEmployee3, 82637, coursePhysics, "Candidate of Sciences", "Professor");
+            SupportStaff staff = new(personEmployee4, 13948, "Cleaner");
 
             var employees = new List<UniversityEmployee>() { employee, teacher, degree, staff };
 
-            Room room1 = new("Lecture room", 1);
-            Room room2 = new("Laboratory room", 2);
-            Room room3 = new("Seminar room", 3);
-            Room room4 = new("Auxiliary room", 4);
-            Room room5 = new("Sports hall", 5);
-            Room room6 = new("Music room", 6);
+            Console.WriteLine("======== Sorted array of employees with using the IComparable interface throught Sort method ==============");
+            List<UniversityEmployee> employessArray = new List<UniversityEmployee> { employee, teacher, degree, staff };
+            employessArray.Sort();
 
-            
-            var roomsBuilding1 = new List<Room>() { room1, room2, room3 };
-            var roomsBuilding2 = new List<Room>() { room4, room5 };
-            var roomsBuilding3 = new List<Room>() { room6 };
-
-            Address buidingAddress1 = new("Minsk", "Nezawisimosti", 170, 7);
-            Address buidingAddress2 = new("Minsk", "Pobeditelei", 208, 13);
-            Address officialAddress = new("Minsk", "Nezawisimosti", 170, 7);
-            Address buidingAddress3 = new("Minsk", "Syrganova", 15, 33);
-
-            Building building1 = new(buidingAddress1, roomsBuilding1);
-            Building building2 = new(buidingAddress2, roomsBuilding2);
-            Building building3 = new(buidingAddress3, roomsBuilding3);
-
-            var buildings = new List<Building>() { building1, building2, building3 };
-
-            University university1 = new(officialAddress, employees, buildings, personRector);
-
-            Teacher teacher2 = new(personEmployee2, "12637", courseMath);
-            university1.AddEmployee(teacher2);
-            university1.AddEmployee(staff);
-            university1.AddBuilding(building3);
-            university1.AddEmployee(teacher);
-            building3.AddRoom(room5);
-            building3.AddRoom(room6);
-
-            Room room1_alt = new("Seminar room", 3);
-            var roomsBuilding1_alt = new List<Room>() { room1_alt, room2, room3, room4 };
-            Building building1_alt = new(buidingAddress2, roomsBuilding1_alt);
-            Console.WriteLine(room1.Equals(room1_alt));
-            Console.WriteLine(building1.Equals(building1_alt));
-
-
-            Console.WriteLine("University rector is: " + university1.Rector.Name + " " + university1.Rector.Surname);
-
-            Console.WriteLine($"=============== Employees which surname starts with selected letter ======================");
-
-            var employeeSortedBySurname = university1.UniversityEmployees
-                .Where(e => e.Person.Surname.ToUpper().StartsWith("S"))
-                .OrderBy(e => e.TaxId)
-                .Select(o => $"{o.Person.Surname} {o.Person.Name}");
-
-            foreach ( var employeeSorted in employeeSortedBySurname) 
+            foreach (UniversityEmployee currentEmployee in employessArray)
             {
-                Console.WriteLine(employeeSorted);
+                Console.WriteLine($"{currentEmployee.Person.Name} {currentEmployee.Person.Surname}");
             }
 
-            Console.WriteLine($"=============== Teacher of selected course ======================");
+            Console.WriteLine("========= Sorted array of employees with using the IComparer interface throught OrderBy method =======");
 
-            var teachersSortedByCours = university1.UniversityEmployees
-                .OfType<Teacher>()
-                .Where(t => t.Course.Title.StartsWith("Physics"))
-                .OrderBy(e => e.Person.Surname);
-               
-            foreach (var teacherSorted in teachersSortedByCours)
-            {
-                Console.WriteLine($"{teacherSorted.Person.Surname} {teacherSorted.Person.Name}");
+            employees.Sort(new UniversityEmployeesComparer());
+
+            foreach (UniversityEmployee currentEmployee in employees) {
+                Console.WriteLine($"{currentEmployee.Person.Name} {currentEmployee.Person.Surname}");
             }
 
-            Console.WriteLine($"=============== Tax ID and duties of employees ======================");
+            Console.WriteLine("=============== Sorted array of employees with using LINQ OrderBy ======================");
 
-            var employeesWithDuties = employees
-                .Select(d => $"{d.TaxId} {d.GetOfficialDuties()}");
+            var employeeSortedByLINQ = employees
+                .OrderBy(e => e.Person.FullNameLenght());
 
-            foreach (var employeeDuties in employeesWithDuties)
+            foreach (UniversityEmployee currentEmployee in employeeSortedByLINQ)
             {
-                Console.WriteLine(employeeDuties);
+                Console.WriteLine($"{currentEmployee.Person.Name} {currentEmployee.Person.Surname}");
             }
 
-            Console.WriteLine($"============== Address of building with SELECTED number of rooms =======================");
+            Console.WriteLine("=========================================================");
 
-            var selectedBuildings = university1.Buildings
-                .SelectMany(b => b.Rooms, (b, r) => new { Addres = b.BuildingAddress, RoomNum = r.RoomNumber })
-                .Where(obj => obj.RoomNum == 6); 
+            //Room room1 = new("Lecture room", 1);
+            //Room room2 = new("Laboratory room", 2);
+            //Room room3 = new("Seminar room", 3);
+            //Room room4 = new("Auxiliary room", 4);
+            //Room room5 = new("Sports hall", 5);
+            //Room room6 = new("Music room", 6);
 
-            foreach (var selectedBuilding in selectedBuildings)
-            {
-                Console.WriteLine(
-                    $"{selectedBuilding.Addres.City} {selectedBuilding.Addres.Street}" +
-                    $" {selectedBuilding.Addres.House} {selectedBuilding.Addres.Apartment}"
-                );
-            }
 
-            Console.WriteLine($"============== Address of building with MAX number of rooms =======================");
+            //var roomsBuilding1 = new List<Room>() { room1, room2, room3 };
+            //var roomsBuilding2 = new List<Room>() { room4, room5 };
+            //var roomsBuilding3 = new List<Room>() { room6 };
 
-            var buildingWithMaxRoomCount = buildings
-                .Select(b => new { Count = b.Rooms.Count(), BuildingAddress = b.BuildingAddress })
-                .MaxBy(b => b.Count);
+            //Address buidingAddress1 = new("Minsk", "Nezawisimosti", 170, 7);
+            //Address buidingAddress2 = new("Minsk", "Pobeditelei", 208, 13);
+            //Address officialAddress = new("Minsk", "Nezawisimosti", 170, 7);
+            //Address buidingAddress3 = new("Minsk", "Syrganova", 15, 33);
 
-            Console.WriteLine(
-                $"{buildingWithMaxRoomCount.BuildingAddress.City} {buildingWithMaxRoomCount.BuildingAddress.Street}" +
-                $" {buildingWithMaxRoomCount.BuildingAddress.House} {buildingWithMaxRoomCount.BuildingAddress.Apartment}"
-            );
+            //Building building1 = new(buidingAddress1, roomsBuilding1);
+            //Building building2 = new(buidingAddress2, roomsBuilding2);
+            //Building building3 = new(buidingAddress3, roomsBuilding3);
 
-            Console.WriteLine($"=============== Print surname with max usages ======================");
+            //var buildings = new List<Building>() { building1, building2, building3 };
 
-            var maxSurnameUsages = university1.UniversityEmployees
-                .GroupBy(currEmp => currEmp.Person.Surname)
-                .Select(g => new { Name = g.Key, Count = g.Count() })
-                .MaxBy(b => b.Count);
+            //University university1 = new(officialAddress, employees, buildings, personRector);
 
-            Console.WriteLine($"{maxSurnameUsages?.Name} : {maxSurnameUsages?.Count} ");
+            //Teacher teacher2 = new(personEmployee2, 72637, courseMath);
+            //university1.AddEmployee(teacher2);
+            //university1.AddEmployee(staff);
+            //university1.AddBuilding(building3);
+            //university1.AddEmployee(teacher);
+            //building3.AddRoom(room5);
+            //building3.AddRoom(room6);
+
+            //Room room1_alt = new("Seminar room", 3);
+            //var roomsBuilding1_alt = new List<Room>() { room1_alt, room2, room3, room4 };
+            //Building building1_alt = new(buidingAddress2, roomsBuilding1_alt);
+            //Console.WriteLine(room1.Equals(room1_alt));
+            //Console.WriteLine(building1.Equals(building1_alt));
+
+
+            //Console.WriteLine("University rector is: " + university1.Rector.Name + " " + university1.Rector.Surname);
+
+            //Console.WriteLine($"=============== Employees which surname starts with selected letter ======================");
+
+            //var employeeSortedBySurname = university1.UniversityEmployees
+            //    .Where(e => e.Person.Surname.ToUpper().StartsWith("S"))
+            //    .OrderBy(e => e.TaxId)
+            //    .Select(o => $"{o.Person.Surname} {o.Person.Name}");
+
+            //foreach (var employeeSorted in employeeSortedBySurname)
+            //{
+            //    Console.WriteLine(employeeSorted);
+            //}
+
+            //Console.WriteLine($"=============== Teacher of selected course ======================");
+
+            //var teachersSortedByCours = university1.UniversityEmployees
+            //    .OfType<Teacher>()
+            //    .Where(t => t.Course.Title.StartsWith("Physics"))
+            //    .OrderBy(e => e.Person.Surname);
+
+            //foreach (var teacherSorted in teachersSortedByCours)
+            //{
+            //    Console.WriteLine($"{teacherSorted.Person.Surname} {teacherSorted.Person.Name}");
+            //}
+
+            //Console.WriteLine($"=============== Tax ID and duties of employees ======================");
+
+            //var employeesWithDuties = employees
+            //    .Select(d => $"{d.TaxId} {d.GetOfficialDuties()}");
+
+            //foreach (var employeeDuties in employeesWithDuties)
+            //{
+            //    Console.WriteLine(employeeDuties);
+            //}
+
+            //Console.WriteLine($"============== Address of building with SELECTED number of rooms =======================");
+
+            //var selectedBuildings = university1.Buildings
+            //    .SelectMany(b => b.Rooms, (b, r) => new { Addres = b.BuildingAddress, RoomNum = r.RoomNumber })
+            //    .Where(obj => obj.RoomNum == 6);
+
+            //foreach (var selectedBuilding in selectedBuildings)
+            //{
+            //    Console.WriteLine(
+            //        $"{selectedBuilding.Addres.City} {selectedBuilding.Addres.Street}" +
+            //        $" {selectedBuilding.Addres.House} {selectedBuilding.Addres.Apartment}"
+            //    );
+            //}
+
+            //Console.WriteLine($"============== Address of building with MAX number of rooms =======================");
+
+            //var buildingWithMaxRoomCount = buildings
+            //    .Select(b => new { Count = b.Rooms.Count(), BuildingAddress = b.BuildingAddress })
+            //    .MaxBy(b => b.Count);
+
+            //Console.WriteLine(
+            //    $"{buildingWithMaxRoomCount.BuildingAddress.City} {buildingWithMaxRoomCount.BuildingAddress.Street}" +
+            //    $" {buildingWithMaxRoomCount.BuildingAddress.House} {buildingWithMaxRoomCount.BuildingAddress.Apartment}"
+            //);
+
+            //Console.WriteLine($"=============== Print surname with max usages ======================");
+
+            //var maxSurnameUsages = university1.UniversityEmployees
+            //    .GroupBy(currEmp => currEmp.Person.Surname)
+            //    .Select(g => new { Name = g.Key, Count = g.Count() })
+            //    .MaxBy(b => b.Count);
+
+            //Console.WriteLine($"{maxSurnameUsages?.Name} : {maxSurnameUsages?.Count} ");
         }
     }
 }

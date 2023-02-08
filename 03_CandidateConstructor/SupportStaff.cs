@@ -1,10 +1,10 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class SupportStaff: UniversityEmployee
+    public class SupportStaff: UniversityEmployee
     {
         public string Duties { get; set; }
       
-        public SupportStaff(Person person, string taxID, string duties) : base(person, taxID)
+        public SupportStaff(Person person, int taxID, string duties) : base(person, taxID)
         {
             Duties = duties;
         }

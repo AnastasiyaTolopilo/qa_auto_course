@@ -1,10 +1,10 @@
 ﻿namespace _03_CandidateConstructor
 {
-    internal class Teacher: UniversityEmployee
+    public class Teacher: UniversityEmployee
     {
         public Course Course { get; set; }
        
-        public Teacher(Person person, string taxId, Course course): base(person, taxId)
+        public Teacher(Person person, int taxId, Course course): base(person, taxId)
         {
             Course = course;
         }
